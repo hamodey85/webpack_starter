@@ -1,0 +1,36 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  outline: 0;
+}
+
+body {
+  position: relative;
+
+  margin: 0;
+  overflow-x: hidden;
+
+  color: #222;
+  font-family: Barlow, Helvetica, sans-serif;
+
+  user-select: none;
+}
+
+@media (min-width: 600px) {
+  .about {
+    display: none;
+  }
+  .header {
+    display: none;
+  }
+  .presentation {
+    display: none;
+  }
+  .contact {
+    display: none;
+  }
+}

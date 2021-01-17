@@ -1,0 +1,118 @@
+.b {
+  display: inline-block;
+  width: 100px;
+}
+
+.header {
+  @include fullscreen;
+  position: fixed;
+  top: 0;
+
+  padding-right: 25px;
+
+  background: linear-gradient(
+      113.97deg,
+      color(purple) 30.44%,
+      rgba(255, 255, 255, 0.17) 69.5%
+    ),
+    linear-gradient(180deg, color(green) 22.64%, color(purple) 100%);
+
+  transition-duration: 300ms;
+
+  &_flank-small {
+    padding-top: 30px;
+
+    color: color(green);
+    font-weight: bold;
+    font-size: 33px;
+    text-align: center;
+  }
+
+  &_middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    color: color(green);
+    text-align: center;
+
+    transform: translate(-50%, -50%);
+  }
+
+  &_middle h1 {
+    margin: 0;
+
+    font-weight: bold;
+    font-size: 100px;
+  }
+
+  &_middle h2 {
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 36px;
+  }
+
+  &_arrow {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+
+    width: 40px;
+    height: 40px;
+
+    backface-visibility: hidden;
+
+    animation-name: rise;
+    animation-duration: 1.2s;
+    animation-iteration-count: infinite;
+  }
+
+  &_arrow::after {
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin-left: -10px;
+
+    border-bottom: 8px solid #2afd2e;
+    border-left: 8px solid #2afd2e;
+    transform: translate(-50%, -50%);
+    transform: rotate(-45deg);
+
+    content: '';
+  }
+}
+
+@keyframes rise {
+  0% {
+    bottom: 80px;
+
+    opacity: 1;
+  }
+
+  100% {
+    bottom: 100px;
+
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.pulse {
+  animation-name: pulse;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}

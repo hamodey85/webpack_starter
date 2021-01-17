@@ -1,0 +1,32 @@
+{
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-sass-guidelines",
+    "stylelint-prettier/recommended",
+    "stylelint-config-prettier"
+  ],
+  "plugins": [
+    "stylelint-a11y",
+    "stylelint-scss",
+    "stylelint-order",
+    "stylelint-group-selectors",
+    "stylelint-declaration-block-no-ignored-properties",
+    "stylelint-config-rational-order/plugin"
+  ],
+  "rules": {
+    "prettier/prettier": true,
+    "order/properties-order": [],
+    "declaration-empty-line-before": null,
+    "plugin/stylelint-group-selectors": true,
+    "order/properties-alphabetical-order": null,
+    "plugin/declaration-block-no-ignored-properties": true,
+    "order/order": ["custom-properties", "declarations"],
+    "plugin/rational-order": [
+      true,
+      {
+        "empty-line-between-groups": true
+      }
+    ],
+    "color-named": ["never", {"ignore": ["inside-function"]}]
+  }
+}
