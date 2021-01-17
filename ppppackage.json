@@ -3,24 +3,30 @@
   "version": "1.0.0",
   "description": "My webpack project",
   "main": "index.js",
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack serve --config webpack/webpack.dev.js",
     "build": "cross-env NODE_ENV=production webpack --config webpack/webpack.prod.js",
     "watch": "webpack --watch",
     "postinstall": "husky install",
-    "lint-staged": "lint-staged",
     "style": "stylelint 'src/scss/**'",
     "lint:scss": "stylelint 'src/scss/**/*.scss'",
     "lint:scss:fix": "stylelint 'src/scss/**/*.scss' --fix",
     "lint:js": "eslint . --ext .js,.jsx,ts,tsx",
     "lint:js:fix": "npm run lint:js -- --fix"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "lint-staged": {
     "src/js/*.{js,.jsx,ts,tsx}": "npm run lint:js:fix",
-    "src/scss/**/*.scss": "npm run lint:scss:fix"
+    "src/scss/*.scss": "npm run lint:scss:fix",
+    "*.js": "eslint --cache --fix",
+    "*.css": "stylelint --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "devDependencies": {
     "@babel/preset-env": "^7.12.11",
